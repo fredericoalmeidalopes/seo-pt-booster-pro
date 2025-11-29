@@ -1,23 +1,36 @@
+/* Dashboard Container */
+.spb-dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 /* ==========================
    Notificação Admin
 ========================== */
 .spb-notice {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 16px 20px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     background-color: #FFF9F0;
     border-left: 4px solid #FFA500;
-    color: #333;
     border-radius: 8px;
-    padding: 20px;
-    margin: 20px 0;
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .spb-notice-icon {
     font-size: 28px;
     margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.spb-notice-text {
+    flex: 1 1 300px;
+    min-width: 200px;
 }
 
 .spb-notice-text h2 {
@@ -32,12 +45,17 @@
 }
 
 .spb-notice-buttons {
-    margin-left: auto;
     display: flex;
     gap: 10px;
-    flex-wrap: wrap;
+    flex-shrink: 0;
+    margin-top: 10px;
 }
 
+@media (min-width: 600px){
+    .spb-notice-buttons { margin-top: 0; }
+}
+
+/* Botões */
 .spb-btn {
     padding: 8px 16px;
     border-radius: 6px;
@@ -48,14 +66,10 @@
     transition: all 0.3s ease;
 }
 
-.spb-btn-primary {
-    background-color: #28A745;
-}
+.spb-btn-primary { background-color: #28A745; }
 .spb-btn-primary:hover { background-color: #218838; }
 
-.spb-btn-secondary {
-    background-color: #007BFF;
-}
+.spb-btn-secondary { background-color: #007BFF; }
 .spb-btn-secondary:hover { background-color: #0069D9; }
 
 /* ==========================
@@ -76,7 +90,7 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    gap: 10px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -85,34 +99,16 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
-.spb-card h3 {
-    margin-top: 0;
-    font-size: 16px;
-    font-weight: 600;
-    color: #212121;
-}
+.spb-card-icon { font-size: 28px; }
 
-.spb-card p {
-    font-size: 13px;
-    color: #424242;
-    margin: 10px 0;
-}
-
-.spb-card-icon {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
+.spb-card h3 { margin: 0; font-size: 16px; font-weight: 600; }
+.spb-card p { font-size: 14px; color: #424242; margin: 0; }
 
 .spb-card-orange { border-left: 4px solid #FFC107; }
 .spb-card-red { border-left: 4px solid #FF6F61; }
 .spb-card-green { border-left: 4px solid #81C784; }
 
-/* Botões nos cards */
-.spb-card .spb-btn {
-    margin-top: 10px;
-    font-size: 13px;
-    padding: 6px 12px;
-}
+.spb-card .spb-btn { align-self: flex-start; padding: 6px 12px; font-size: 13px; border-radius: 6px; }
 
 /* ==========================
    Barra de Risco
