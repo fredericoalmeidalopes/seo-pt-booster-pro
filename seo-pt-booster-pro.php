@@ -10,8 +10,10 @@ Text Domain: seo-pt-booster-clean
 
 if ( ! defined('ABSPATH') ) exit;
 
+// Inclui classe admin
 require_once plugin_dir_path(__FILE__) . 'admin/class-admin.php';
 
+// Inicializa plugin
 function spb_clean_init() {
     SPB_Admin::get_instance();
 }
