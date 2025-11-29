@@ -2,7 +2,6 @@
 if ( ! defined('ABSPATH') ) exit;
 
 class SPB_Admin {
-
     private static $instance = null;
 
     public static function get_instance() {
@@ -18,26 +17,20 @@ class SPB_Admin {
         add_action('admin_menu', [$this, 'add_menu_page']);
     }
 
-    // ================================
-    // Enqueue CSS/JS
-    // ================================
     public function enqueue_assets() {
         wp_enqueue_style('spb-admin-style', plugin_dir_url(__FILE__) . 'css/admin-style.css', [], '1.0');
-        wp_enqueue_script('spb-admin-js', plugin_dir_url(__FILE__) . 'css/admin-style.js', ['jquery'], '1.0', true);
     }
 
-    // ================================
-    // Notificação persistente
-    // ================================
+    // Notificação top admin
     public function show_admin_notice() {
         ?>
-        <div class="spb-notice animated-bounce">
-            <div class="spb-icon">⚠️</div>
+        <div class="spb-notice">
+            <div class="spb-notice-icon">⚠️</div>
             <div class="spb-notice-text">
                 <h2>O seu plugin de SEO global pode estar a prejudicar o seu tráfego em Portugal!</h2>
-                <p>Podem existir problemas de linguagem ou de localização que afetam o ranking do seu site. Descubra como otimizar.</p>
+                <p>Podem existir problemas de linguagem ou localização que afetam o ranking do seu site. Descubra como otimizar.</p>
             </div>
-            <div class="spb-buttons">
+            <div class="spb-notice-buttons">
                 <a href="<?php echo admin_url('admin.php?page=spb-dashboard'); ?>" class="spb-btn spb-btn-primary">Ver Problemas do Site</a>
                 <a href="https://seo-pt.pt/" target="_blank" class="spb-btn spb-btn-secondary">Descubra o SEO-PT</a>
             </div>
@@ -45,24 +38,20 @@ class SPB_Admin {
         <?php
     }
 
-    // ================================
     // Painel no menu
-    // ================================
     public function add_menu_page() {
         add_menu_page(
-            'SEO-PT Booster',            // Título da página
-            'SEO-PT Booster',            // Título do menu
-            'manage_options',            // Capabilidade
+            'SEO-PT Booster',            // Page title
+            'SEO-PT Booster',            // Menu title
+            'manage_options',            // Capability
             'spb-dashboard',             // Slug
             [$this, 'dashboard_page'],   // Callback
-            'dashicons-chart-area',      // Ícone
-            3                             // Posição
+            'dashicons-chart-area',      // Icon
+            3                             // Position
         );
     }
 
-    // ================================
-    // Conteúdo do Painel
-    // ================================
+    // Dashboard
     public function dashboard_page() {
         ?>
         <div class="wrap">
@@ -76,9 +65,8 @@ class SPB_Admin {
                 </div>
             </div>
 
-            <!-- Cards Persuasivos -->
+            <!-- Cards -->
             <div class="spb-cards-container">
-                <!-- Curadoria Linguística -->
                 <div class="spb-card spb-card-orange">
                     <div class="spb-card-icon">⚠️</div>
                     <h3>Curadoria Linguística PT-PT</h3>
@@ -86,7 +74,6 @@ class SPB_Admin {
                     <a href="#" class="spb-btn spb-btn-primary">Analisar com SEO-PT</a>
                 </div>
 
-                <!-- Localização / Schema -->
                 <div class="spb-card spb-card-red">
                     <div class="spb-card-icon">🌍</div>
                     <h3>Localização e Schema PT</h3>
@@ -94,10 +81,9 @@ class SPB_Admin {
                     <a href="#" class="spb-btn spb-btn-primary">Corrigir com SEO-PT</a>
                 </div>
 
-                <!-- Compatibilidade Plugins SEO -->
                 <div class="spb-card spb-card-green">
                     <div class="spb-card-icon">✅</div>
-                    <h3>Compatibilidade com Plugins de SEO</h3>
+                    <h3>Compatibilidade Plugins SEO</h3>
                     <p>SEO-PT integra-se com Yoast, Rank Math, AIOSEO e SEOPress, complementando o seu plugin de SEO sem conflitos.</p>
                 </div>
             </div>
