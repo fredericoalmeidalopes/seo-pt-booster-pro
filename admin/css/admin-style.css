@@ -1,0 +1,118 @@
+/* Notificação Persistente */
+.spb-notice {
+    display: flex;
+    align-items: center;
+    background-color: #FFA500;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    width: 100%;
+    min-height: 120px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    animation: slideIn 0.7s ease-out;
+}
+
+.spb-icon {
+    font-size: 50px;
+    margin-right: 20px;
+}
+
+.spb-notice-text h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.spb-notice-text p {
+    margin: 5px 0 0;
+}
+
+.spb-buttons {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.spb-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.spb-btn-primary {
+    background-color: #28A745;
+}
+.spb-btn-primary:hover { background-color: #218838; }
+
+.spb-btn-secondary {
+    background-color: #007BFF;
+}
+.spb-btn-secondary:hover { background-color: #0069D9; }
+
+/* Animações */
+@keyframes slideIn {
+    0% { transform: translateY(-150px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.animated-bounce {
+    animation: bounce 1s ease;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Dashboard - Cards */
+.spb-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.spb-card {
+    flex: 1 1 30%;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.spb-card h3 { margin-top: 10px; }
+.spb-card p { margin: 10px 0; }
+
+.spb-card-orange { border-left: 5px solid #FFC107; }
+.spb-card-red { border-left: 5px solid #FF6347; }
+.spb-card-green { border-left: 5px solid #28A745; }
+
+.spb-card-icon {
+    font-size: 40px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+/* Barra de Risco */
+.spb-risk-bar {
+    margin: 20px 0;
+}
+
+.spb-progress {
+    width: 100%;
+    background: #ddd;
+    border-radius: 10px;
+    height: 20px;
+    margin-top: 5px;
+}
+
+.spb-progress-fill {
+    background: #FF6347;
+    height: 100%;
+    border-radius: 10px;
+}
