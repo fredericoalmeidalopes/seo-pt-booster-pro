@@ -17,11 +17,12 @@ class SPB_Admin {
         add_action('admin_menu', [$this, 'add_menu_page']);
     }
 
+    // Enqueue CSS
     public function enqueue_assets() {
         wp_enqueue_style('spb-admin-style', plugin_dir_url(__FILE__) . 'css/admin-style.css', [], '1.0');
     }
 
-    // Notificação top admin
+    // Notificação topo
     public function show_admin_notice() {
         ?>
         <div class="spb-notice">
@@ -38,23 +39,23 @@ class SPB_Admin {
         <?php
     }
 
-    // Painel no menu
+    // Menu do dashboard
     public function add_menu_page() {
         add_menu_page(
-            'SEO-PT Booster',            // Page title
-            'SEO-PT Booster',            // Menu title
+            'SEO-PT Booster',            // Título da página
+            'SEO-PT Booster',            // Título do menu
             'manage_options',            // Capability
             'spb-dashboard',             // Slug
             [$this, 'dashboard_page'],   // Callback
-            'dashicons-chart-area',      // Icon
-            3                             // Position
+            'dashicons-chart-area',      // Ícone
+            3                             // Posição
         );
     }
 
-    // Dashboard
+    // Conteúdo do dashboard
     public function dashboard_page() {
         ?>
-        <div class="wrap">
+        <div class="wrap spb-dashboard-container">
             <h1>SEO-PT Booster Dashboard</h1>
 
             <!-- Barra de Risco -->
